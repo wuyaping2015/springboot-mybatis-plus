@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wyp.mapper.UserMapper">
+
+	<resultMap id="BaseResultMap" type="cn.wyp.pojo.User">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="age" property="age" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, name, age
+    </sql>
+    
+    <select id="getYong" parameterType="int" resultType="cn.wyp.pojo.User">
+    <![CDATA[ select * from user where age < #{age} order by age]]>
+    </select>
+</mapper>
